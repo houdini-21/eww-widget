@@ -1,0 +1,39 @@
+(defwidget spotifyPlayer []
+    (
+        box :class "player" :orientation "h" :space-evenly false :vexpand false :hexpand false :spacing 5
+            (box :class "player__cover" :vexpand false :hexpand false :style "background-image: url('${imgSong}');" :width 110 :height 110)
+            (box :class "player__body" :orientation "v" :width 200 :halign "center" :valign "center"
+                (label :class "player__info--title" :text "${titleSong}" :limit-width 15 :tooltip "${titleSong}")
+                (label :class "player__info--artist" :text "${artistSong}" :limit-width 15 :tooltip "${artistSong}")
+                (box :class "player__buttons" :orientation "h" :halign "center" :valign "center"
+                    (button :class "player__buttons--icon" :onclick "spotifyctl -q previous" "")
+                    (button :class "player__buttons--icon" :onclick "spotifyctl -q playpause" "${statusSong}"  )
+                    (button :class "player__buttons--icon" :onclick "spotifyctl -q next" "")
+                )
+                (box :class "player__progress" :orientation "h" :halign "center" :valign "center"
+                    (scale :min 0 :max lengthSong :value positionSong :orientation "h" :timeout 1000 :onchange "playerctl position {}" )
+                )
+            )
+))
+
+(defwindow player
+    :monitor 1
+    :geometry 
+    (geometry
+      :x "0" 
+      :y "4%" 
+      :windowtype "widget"
+      :anchor "top center"
+      :width 350
+      :height 130
+    )
+(spotifyPlayer))
+
+(defwidget spotifySimple []
+  (
+    button :onclick "widgets/scripts/pop.sh music" :class "spotify" :vexpand "false" :hexpand "false" :space-evenly "false"
+    (box :vexpand "false" :hexpand "false" :space-evenly "false" :class "spotify"
+      (label :class "spotify--icon" :text " ")
+      (label :class "spotify--text" :text songAndArtist :limit-width 50)
+  )
+))

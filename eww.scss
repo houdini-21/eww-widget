@@ -1,0 +1,259 @@
+$red: #f38ba8;
+$green: #a6d189;
+$blue: #8caaee;
+$purple: #cba6f7;
+$yellow: #e5c890;
+$orange: #fab387;
+$pink: #f5c2e7;
+$teal: #94e2d5;
+$mauve: #cba6f7;
+
+$text: #cdd6f4;
+$principal: #1e1e2e;
+$secondary: #313244;
+$active-workspace: #bac2de;
+$focus-workspace: #cdd6f4;
+$inactive-workspace: #45475a;
+
+$overline: #cdd6f4;
+$overline-light: #7f849c;
+
+* {
+  all: unset;
+}
+
+.bar {
+  background-color: $principal;
+  padding-left: 20px;
+}
+
+.workspace {
+  font-size: 15px;
+  margin: 8px 0px 0px 0px;
+  font-weight: normal;
+  font-family: "Font Awesome 6 Pro";
+}
+
+.w0,
+.w01,
+.w02,
+.w03,
+.w04,
+.w05,
+.w06,
+.w011,
+.w022,
+.w033,
+.w044,
+.w055,
+.w066 {
+  margin: 0px 10px 0px 0px;
+}
+
+/* Unoccupied */
+.w0 {
+  color: $inactive-workspace;
+}
+
+/* Occupied */
+.w01,
+.w02,
+.w03,
+.w04,
+.w05,
+.w06 {
+  color: $active-workspace;
+}
+
+/* Focused */
+.w011,
+.w022,
+.w033,
+.w044,
+.w055,
+.w066 {
+  font-weight: bold;
+  color: $focus-workspace;
+}
+
+.system {
+  font-size: 15px;
+  font-weight: normal;
+  margin: 0px 15px 0px 0px;
+  font-family: "OperatorMono Nerd Font";
+
+  &__temp {
+    background-color: $orange;
+    padding: 2px 10px;
+    border-radius: 5px;
+
+    &--stats {
+      color: $principal;
+    }
+    &--label {
+      font-family: "Font Awesome 6 Pro";
+      color: $principal;
+      margin-right: 6px;
+    }
+  }
+
+  &__cpu {
+    background-color: $blue;
+    padding: 2px 10px;
+    border-radius: 5px;
+
+    &--stats {
+      color: $principal;
+    }
+    &--label {
+      font-family: "Font Awesome 6 Pro";
+      color: $principal;
+      margin-right: 6px;
+    }
+  }
+
+  &__memory {
+    margin: 0px 10px;
+    background-color: $purple;
+    padding: 2px 10px;
+    border-radius: 5px;
+
+    &--stats {
+      color: $principal;
+    }
+
+    &--label {
+      font-family: "Font Awesome 6 Pro";
+      color: $principal;
+      margin-right: 6px;
+    }
+  }
+
+  &__time {
+    background-color: $pink;
+    padding: 2px 10px;
+    border-radius: 5px;
+
+    &--stats {
+      color: $principal;
+    }
+
+    &--label {
+      font-family: "Font Awesome 6 Pro";
+      color: $principal;
+      margin-right: 6px;
+    }
+  }
+
+  &__date {
+    margin-left: 10px;
+    background-color: $mauve;
+    padding: 2px 10px;
+    border-radius: 5px;
+
+    &--stats {
+      color: $principal;
+    }
+
+    &--label {
+      font-family: "Font Awesome 6 Pro";
+      color: $principal;
+      margin-right: 6px;
+    }
+  }
+
+  &__notifications {
+    margin-left: 10px;
+    background-color: $red;
+    padding: 2px 10px;
+    border-radius: 5px;
+
+    &--label {
+      font-family: "Font Awesome 6 Pro";
+      color: $principal;
+      font-size: 18px;
+    }
+  }
+}
+
+.player {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: $principal;
+  border: 2px solid $inactive-workspace;
+
+  &__cover {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    min-width: 120px;
+    min-height: 110px;
+  }
+
+  &__info {
+    margin-left: 20px;
+
+    &--title {
+      font-size: 18px;
+      font-weight: 600;
+      color: $text;
+      font-family: "FiraCode Nerd Font";
+    }
+
+    &--artist {
+      font-size: 14px;
+      font-weight: 400;
+      color: $text;
+      font-family: "FiraCode Nerd Font";
+    }
+  }
+
+  &__buttons {
+    margin-left: 20px;
+
+    &--icon {
+      color: $text;
+      font-size: 20px;
+      margin-right: 20px;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+  }
+
+  &__progress {
+    margin-left: 20px;
+
+    & scale {
+      margin-top: 10px;
+
+      & trough highlight {
+        all: unset;
+        border-radius: 20px;
+        background-color: $overline;
+      }
+
+      & trough {
+        all: unset;
+        border-radius: 20px;
+        min-height: 7px;
+        min-width: 190px;
+        background-color: $overline-light;
+      }
+    }
+  }
+}
+
+.spotify {
+  &--icon {
+    font-size: 15px;
+    color: $green;
+    margin-right: 10px;
+  }
+
+  &--text {
+    font-size: 12px;
+    font-weight: 600;
+    color: $text;
+    font-family: "FiraCode Nerd Font";
+  }
+}

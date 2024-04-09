@@ -1,0 +1,75 @@
+(defvar imgUser "widgets/icons/avatar.png")
+(defvar previousImg "widgets/icons/previous.png")
+(defvar nextImg "widgets/icons/next.png")
+(defvar eww "$HOME/.local/bin/eww/eww -c $HOME/.config/eww/bar")
+(defvar wifi_rev false)
+(defvar br_reveal false)
+(defvar vol_reveal false)
+(defvar spotify_rev false)
+(defvar battery_rev false)
+
+(defpoll battery_percent :interval "15s" "./scripts/battery.sh --bat")
+(defpoll battery_icon :interval "15s" "./scripts/battery.sh --bat-st")
+(defpoll battery_color :interval "15s" "./scripts/battery.sh --bat-color")
+
+(defpoll calendar_day :interval "20h" "date '+%d'")
+(defpoll calendar_year :interval "20h" "date '+%Y'")
+
+(defpoll imgSong :interval "1s" "widgets/scripts/getImage.sh")
+(defpoll titleSong :interval "1s" "playerctl metadata --format '{{ title }}' --player=spotify")
+(defpoll artistSong :interval "1s" "playerctl metadata --format '{{ artist }}' --player=spotify")
+
+(defpoll songAndArtist :interval "1s" "playerctl metadata --format '{{ artist }} - {{ title }}' --player spotify")
+(defpoll lengthSong :initial 0 :interval "1s" "playerctl metadata --format '{{mpris:length/1000000}}' --player spotify")
+(defpoll positionSong :initial 0 :interval "1s" "playerctl metadata --format '{{ position/1000000 }}' --player spotify")
+
+(defpoll dateTime :interval "10s" "date '+%A, %d %B %Y %H:%M'")
+
+(defpoll volume_percent :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+
+(defpoll statusSong :interval "1s" "widgets/scripts/playpause.sh")
+
+(defpoll vol :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll brightness :interval "1s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+
+
+(defpoll date :interval "10s" `date "+%d/%m/%Y"`)
+(defpoll time :interval "10s" `date "+%I:%M"`)
+
+(defpoll COL_WLAN :interval "1s" "~/.config/eww/scripts/wifi.sh --COL")
+(defpoll ESSID_WLAN :interval "1s" "~/.config/eww/scripts/wifi.sh --ESSID")
+(defpoll WLAN_ICON :interval "1s" "~/.config/eww/scripts/wifi.sh --ICON")
+
+
+(defpoll weatherIcon1 :interval "5h" "widgets/scripts/weather.sh --icon 0")
+(defpoll weatherDesc1 :interval "5h" "widgets/scripts/weather.sh --stat 0")
+(defpoll weatherTemp1 :interval "5h" "widgets/scripts/weather.sh --temp 0")
+(defpoll dateName1 :interval "5h" "date '+%A' --date='0 day'")
+
+
+(defpoll weatherIcon2 :interval "5h" "widgets/scripts/weather.sh --icon 1")
+(defpoll weatherDesc2 :interval "5h" "widgets/scripts/weather.sh --stat 1")
+(defpoll weatherTemp2 :interval "5h" "widgets/scripts/weather.sh --temp 1")
+(defpoll dateName2 :interval "5h" "date '+%A' --date='1 day'")
+
+
+(defpoll weatherIcon3 :interval "5h" "widgets/scripts/weather.sh --icon 2")
+(defpoll weatherDesc3 :interval "5h" "widgets/scripts/weather.sh --stat 2")
+(defpoll weatherTemp3 :interval "5h" "widgets/scripts/weather.sh --temp 2")
+(defpoll dateName3 :interval "5h" "date '+%A' --date='2 day'")
+
+
+(defpoll weatherIcon4 :interval "5h" "widgets/scripts/weather.sh --icon 3")
+(defpoll weatherDesc4 :interval "5h" "widgets/scripts/weather.sh --stat 3")
+(defpoll weatherTemp4 :interval "5h" "widgets/scripts/weather.sh --temp 3")
+(defpoll dateName4 :interval "5h" "date '+%A' --date='3 day'")
+
+
+(defpoll cpuUsage :interval "1s" "widgets/scripts/sys_info.sh --cpu")
+(defpoll cpuTemp :interval "1s" "widgets/scripts/sys_info.sh --temp-cpu")
+
+(defpoll memUsage :interval "1s" "widgets/scripts/sys_info.sh --mem")
+
+(deflisten workspace "widgets/scripts/workspaces.sh")
+
+(defpoll notificationIcon :interval "200ms" "widgets/scripts/notifications.sh")

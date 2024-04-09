@@ -1,0 +1,113 @@
+;; system
+
+(defwidget system []
+    (box    :orientation "h"
+            :class "system"
+            :space-evenly "false" 
+            :spacing "0" 
+            :valign "center"
+            :halign "center"
+
+        (system-cpu)
+        (system-memory)
+        (system-time)
+    )
+)
+
+(defwidget system-temp []
+    (box    :orientation "h"
+            :class "system"
+            :space-evenly "false" 
+            :spacing "0" 
+            :valign "center"
+            :halign "center"
+
+        (system-cpu-temp)
+        (system-date)
+        (system-notifications)
+    )
+)
+
+(defwidget system-cpu []
+    (box    :orientation "h"
+            :class "system__cpu"
+            :space-evenly "false" 
+            :spacing "0" 
+            :valign "center"
+            :halign "center"
+
+        (label :class "system__cpu--label" :text "")
+        (label :class "system__cpu--stats" :text "${cpuUsage}%" )
+    )
+)
+
+;; cpu temp
+(defwidget system-cpu-temp []
+    (box    :orientation "h"
+            :class "system__temp"
+            :space-evenly "false" 
+            :spacing "0" 
+            :valign "center"
+            :halign "center"
+
+        (label :class "system__temp--label" :text "")
+        (label :class "system__temp--stats" :text "${cpuTemp}" )
+    )
+)
+
+
+(defwidget system-memory []
+    (box    :orientation "h"
+            :class "system__memory"
+            :space-evenly "false" 
+            :spacing "0" 
+            :valign "center"
+            :halign "center"
+
+        (label :class "system__memory--label" :text "")
+        (label :class "system__memory--stats" :text "${memUsage}%" )
+    )
+)
+
+(defwidget system-time []
+    (box    :orientation "h"
+            :class "system__time"
+            :space-evenly "false" 
+            :spacing "0" 
+            :valign "center"
+            :halign "center"
+
+        (label :class "system__time--label" :text "")
+        (label :class "system__time--stats" :text "${time}" )
+    )
+)
+
+;; calendar
+
+(defwidget system-date []
+    (box    :orientation "h"
+            :class "system__date"
+            :space-evenly "false" 
+            :spacing "0" 
+            :valign "center"
+            :halign "center"
+
+        (label :class "system__date--label" :text "")
+        (label :class "system__date--stats" :text "${date}" )
+    )
+)
+
+;; notifications
+(defwidget system-notifications[]
+    (button 
+            :orientation "h"
+            :class "system__notifications"
+            :space-evenly "false" 
+            :spacing "0" 
+            :valign "center"
+            :halign "center"
+            :onclick "dunstctl set-paused toggle"
+
+        (label :class "system__notifications--label" :text "${notificationIcon}")
+    )
+)

@@ -1,0 +1,48 @@
+
+  (defwidget right []
+    (box :orientation "h"
+      :space-evenly false
+      :halign "start"
+      :class "bar-1__right_modules"
+      (workspaces)
+  ))
+
+  (defwidget right-2 []
+    (box :orientation "h"
+      :space-evenly false
+      :halign "start"
+      :class "bar-2__right_modules"
+      (workspaces)
+  ))
+
+  (defwidget center []
+    (box :orientation "h"
+      :space-evenly false
+      :halign "center"
+      :class "bar-1__center_modules"
+      (clock)
+  ))
+
+  (defwidget center-2 []
+    (box :orientation "h"
+      :space-evenly false
+      :halign "center"
+      :class "bar-2__center_modules"
+      (spotifySimple)
+  ))
+
+  (defwidget left []
+    (box :orientation "h"
+      :space-evenly false
+      :halign "end"
+      :class "bar-1__left_modules"
+      (system)
+  ))
+
+  (defwidget left-2 []
+    (box :orientation "h"
+      :space-evenly false
+      :halign "end"
+      :class "bar-2__left_modules"
+      (system-temp)
+  ))

@@ -1,0 +1,43 @@
+(include "widgets/variables")
+(include "widgets/systemInfo")
+(include "widgets/workspaces")
+(include "widgets/spotify")
+(include "widgets/items")
+
+
+(defwidget bar_1 []
+    (box :class "bar"
+      :orientation "h"
+      (right)
+      (left)
+  ))
+
+(defwidget bar_2 []
+    (box :class "bar"
+      :orientation "h"
+      (right-2)
+      (center-2)
+      (left-2)
+  ))
+  
+(defwindow bar-1
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x "0%"
+      :y "0px"
+      :width "100%"
+      :height "35px"
+    :anchor "top center")
+    :reserve (struts :side "top" :distance "3%")
+    (bar_1))
+
+(defwindow bar-2
+    :monitor 1
+    :windowtype "dock"
+    :geometry (geometry :x "0%"
+      :y "0px"
+      :width "100%"
+      :height "35px"
+    :anchor "top center")
+    :reserve (struts :side "top" :distance "3%")
+(bar_2))
